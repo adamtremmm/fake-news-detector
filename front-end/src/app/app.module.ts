@@ -5,12 +5,16 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from "./header/header.component";
 import { FormsModule } from "@angular/forms";
 import { HomeComponent } from './home/home.component';
+import { TweetListComponent } from './home/tweet-list/tweet-list.component';
+import {TweetComponent} from "./home/tweet-list/tweet/tweet.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    TweetListComponent,
+    TweetComponent
   ],
   imports: [
     BrowserModule,
