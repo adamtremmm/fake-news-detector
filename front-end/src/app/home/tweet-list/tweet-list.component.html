@@ -1,19 +1,26 @@
 <div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-success">New Tweet</button>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <a href="#"
-       class="list-group-item clearfix"
-       *ngFor="let tweet of tweets">
-      <div class="pull-left">
-        <h4 class="list-group-item-heading">{{ tweet.author }}</h4>
+  <div class="col-md-6 list-group">
+    <a *ngFor="let tweet of tweets"
+       class="list-group-item list-group-item-action"
+       href="#">
+
+      <div style="float: left; padding-right: 15px">
+        <img
+          alt="{{ tweet.handle }}"
+          src="{{ tweet.profilePic }}"
+          class="img-responsive"
+          style="max-height: 50px;" >
+      </div>
+      <div style="float: left">
+        <div style="float: left; padding-right: 5px">
+          <h4>{{ tweet.username }}</h4>
+        </div>
+        <div style="padding-top: 4px">
+          <p style="color: gray;">  @{{ tweet.handle }} • {{ tweet.timestamp }}</p>
+        </div>
         <p class="list-group-item-text">{{ tweet.text }}</p>
         <p class="list-group-item-text">Validation: {{ tweet.isTrue ? 'True' : 'False' }}</p>
       </div>
     </a>
-    <app-tweet></app-tweet>
   </div>
 </div>
