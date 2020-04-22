@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Tweet } from '../tweet.model';
+import { Tweet } from '../models/tweet.model';
+import { TweetService } from '../services/tweet.service';
 
 @Component({
   selector: 'app-tweet',
@@ -7,19 +8,37 @@ import { Tweet } from '../tweet.model';
   styleUrls: ['./tweet.component.css']
 })
 export class TweetComponent implements OnInit {
+  tweetService: TweetService;
 
-  tweet = new Tweet(
-    './../../../assets/img/donald-trump.jpg',
-    'Donald J. Trump',
-    'realDonaldTrump',
-    'Just Now',
-    'I am officially stepping down as President of the United States!',
-    false
-  );
+  tweet: Tweet = {
+    profilePic: './../../../assets/img/donald-trump.jpg',
+    username: 'Donald J. Trump',
+    handle: 'realDonaldTrump',
+    timestamp: 'Just Now',
+    text: '',
+    isTrue: false
+  };
 
-  constructor() { }
+  constructor(
+    tweetService: TweetService
+  ) {
+    this.tweetService = tweetService;
+  }
 
   ngOnInit(): void {
+  }
+
+  onClickTweetButton() {
+    let newTweet = new Tweet(
+      this.tweet.profilePic,
+      this.tweet.username,
+      this.tweet.handle,
+      this.tweet.timestamp,
+      this.tweet.text,
+      this.tweet.isTrue
+    );
+    this.tweetService.postTweet(newTweet);
+    this.tweet.text = '';
   }
 
 }
