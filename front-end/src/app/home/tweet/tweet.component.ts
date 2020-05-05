@@ -29,7 +29,7 @@ export class TweetComponent implements OnInit {
   }
 
   onClickTweetButton() {
-    let newTweet = new Tweet(
+    const newTweet = new Tweet(
       this.tweet.profilePic,
       this.tweet.username,
       this.tweet.handle,
