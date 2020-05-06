@@ -17,6 +17,10 @@ export class TweetService {
   ) {}
 
   postTweet(tweet: Tweet) {
+    this.http.post<{ prediction: string }>('http://localhost:5000/fakenews/api/v1.0/predict', { tweet: tweet.text })
+      .subscribe((response) => {
+        console.log(response);
+      });
     console.log('from tweet service');
     console.log(tweet);
     this.tweets.unshift(tweet);
