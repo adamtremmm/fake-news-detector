@@ -4,7 +4,7 @@ export class Tweet {
   public handle: string;
   public timestamp: string;
   public text: string;
-  public isTrue: boolean;
+  public isTrue: string;
 
   constructor(
     profilePic: string,
@@ -12,7 +12,7 @@ export class Tweet {
     handle: string,
     timestamp: string,
     text: string,
-    isTrue: boolean
+    isTrue: string
   ) {
     this.profilePic = profilePic;
     this.username = username;

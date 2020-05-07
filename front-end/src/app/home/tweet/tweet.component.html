@@ -21,7 +21,10 @@
         </div>
       </div>
       <div style="float: right">
-        <button class="btn btn-primary" (click)="onClickTweetButton()">tweet</button>
+        <button
+          class="btn btn-primary"
+          (click)="onClickTweetButton()"
+          [disabled]="!tweet.text">tweet</button>
       </div>
     </form>
   </div>

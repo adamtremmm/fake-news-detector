@@ -16,7 +16,7 @@ export class TweetComponent implements OnInit {
     handle: 'realDonaldTrump',
     timestamp: 'Just Now',
     text: '',
-    isTrue: false
+    isTrue: 'Nah'
   };
 
   constructor(
