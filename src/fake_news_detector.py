@@ -17,7 +17,7 @@ https://docs.python.org/3.7/library/warnings.html#temporarily-suppressing-warnin
 import warnings
 with warnings.catch_warnings():
 	warnings.filterwarnings("ignore",category=DeprecationWarning)
-	from sklearn.externals import joblib
+import joblib
 
 # Paths to pickled classifiers
 FAKE_RELIABLE = '../classifiers/clf_pkl/clf_fake_reliable.pkl'

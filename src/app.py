@@ -4,10 +4,12 @@
 
     curl -i -H "Content-Type: application/json" -X POST -d '{"tweet":"President Trump officially resigned as President of the United States via tweet last night"}' http://localhost:5000/fakenews/api/v1.0/predict
 """
-from flask import Flask, jsonify, request, make_response, render_template
+from flask import Flask, jsonify, request, make_response, render_template, abort
+from flask_cors import CORS
 from fake_news_detector import FakeNewsDetector
 
 app = Flask(__name__)
+CORS(app)
 
 detector = FakeNewsDetector()
 
@@ -25,10 +27,10 @@ def create_prediction():
     if not request.json or not 'tweet' in request.json:
         abort(400)
 
-    prediction = detector.make_prediction( request.json['tweet'] )
-    p = prediction[0]
-    return jsonify({'prediction': p}), 201
+    # prediction = detector.make_prediction( request.json['tweet'] )
+    # p = prediction[0]
+    return jsonify({'prediction': "prediction"}), 201
 
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run()
