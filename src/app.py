@@ -27,9 +27,9 @@ def create_prediction():
     if not request.json or not 'tweet' in request.json:
         abort(400)
 
-    # prediction = detector.make_prediction( request.json['tweet'] )
-    # p = prediction[0]
-    return jsonify({'prediction': "prediction"}), 201
+    prediction = detector.make_prediction( request.json['tweet'] )
+    p = prediction[0]
+    return jsonify({'prediction': p}), 201
 
 
 if __name__ == '__main__':

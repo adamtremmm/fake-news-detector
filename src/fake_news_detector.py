@@ -22,14 +22,15 @@ import joblib
 # Paths to pickled classifiers
 FAKE_RELIABLE = '../classifiers/clf_pkl/clf_fake_reliable.pkl'
 FAKE_RELIABLE_RR = '../classifiers/clf_pkl/clf_fake_reliable_rr.pkl'
+ADAM = '../classifiers/adam_pickle.pkl'
 
 
 class FakeNewsDetector():
 	"""
 	Prediction module
 	"""
-	def __init__(self, clf=FAKE_RELIABLE):
-		self._loaded_clf = joblib.load(FAKE_RELIABLE)
+	def __init__(self, clf=ADAM):
+		self._loaded_clf = joblib.load(clf)
 
 	def make_prediction(self,text):
 		# load the classifiers
